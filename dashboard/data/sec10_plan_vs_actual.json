@@ -1,0 +1,393 @@
+{
+ "id": "sec10_plan_vs_actual",
+ "nav": "Plan vs actual",
+ "title": "Plan vs actual",
+ "intro": "Business plan value against purchase-order and goods-receipt value by month. Plant-level because the source is keyed by material group.",
+ "tiles": [
+  {
+   "label": "Plan vs PO, Apr to Dec 2025",
+   "value": "INR 149,559,855.69 under plan",
+   "definition": "Plan value less actual PO value, ZSPR/ZSPN, plant HZL_DEMO_05, summed Apr to Dec 2025.",
+   "baseline": "Plan INR 1,863,051,232.51",
+   "period": "FY2025-26 to date",
+   "refreshed": "As-of 2025-12-31",
+   "source": "RAW BUSINESS_PLAN_VS_ACTUAL",
+   "status": null,
+   "extra": null
+  },
+  {
+   "label": "Month with largest overrun",
+   "value": "2025-01",
+   "definition": "Month where actual PO value exceeded plan by the most.",
+   "baseline": "INR -46,225,114.33",
+   "period": "Jan 2024 to Dec 2025",
+   "refreshed": "As-of 2025-12-31",
+   "source": "RAW BUSINESS_PLAN_VS_ACTUAL",
+   "status": null,
+   "extra": null
+  },
+  {
+   "label": "Scope of this section",
+   "value": "Plant-level, not the 50",
+   "definition": "The table is keyed by material group, so it cannot be cut to the 50 demo materials.",
+   "baseline": "Plant HZL_DEMO_05, ZSPR/ZSPN",
+   "period": "Jan 2024 to Dec 2025",
+   "refreshed": "As-of 2025-12-31",
+   "source": "RAW BUSINESS_PLAN_VS_ACTUAL",
+   "status": null,
+   "extra": null
+  }
+ ],
+ "charts": [
+  {
+   "id": "pva",
+   "title": "Plan vs actual PO value by month (INR), plant HZL_DEMO_05, ZSPR/ZSPN",
+   "type": "bars2",
+   "labels": [
+    "2024-01",
+    "2024-02",
+    "2024-03",
+    "2024-04",
+    "2024-05",
+    "2024-06",
+    "2024-07",
+    "2024-08",
+    "2024-09",
+    "2024-10",
+    "2024-11",
+    "2024-12",
+    "2025-01",
+    "2025-02",
+    "2025-03",
+    "2025-04",
+    "2025-05",
+    "2025-06",
+    "2025-07",
+    "2025-08",
+    "2025-09",
+    "2025-10",
+    "2025-11",
+    "2025-12"
+   ],
+   "series": [
+    {
+     "name": "Plan",
+     "data": [
+      76175468.13,
+      145537850.63,
+      198180293.94,
+      102643321.71,
+      113760940.11,
+      118749392.84,
+      123459930.28,
+      317661688.91,
+      189314987.69,
+      182766669.6,
+      164630967.38,
+      159647935.54,
+      110864874.07,
+      191998501.15,
+      259622174.16,
+      164207036.24,
+      188366799.47,
+      170164266.79,
+      176264324.08,
+      255435060.39,
+      286017198.63,
+      212633052.94,
+      228405213.95,
+      181558280.02
+     ]
+    },
+    {
+     "name": "Actual PO",
+     "data": [
+      88691899.25,
+      153598800.9,
+      207697739.29,
+      131365628.97,
+      150693439.56,
+      136131413.42,
+      141011459.24,
+      204348048.28,
+      228813758.9,
+      170106442.33,
+      182724171.16,
+      145246623.99,
+      157089988.4,
+      214836640.44,
+      253037125.51,
+      152426508.6,
+      171205165.25,
+      155176333.74,
+      192236755.8,
+      231643432.79,
+      241980327.74,
+      208403561.87,
+      178897409.49,
+      181521881.54
+     ]
+    }
+   ]
+  }
+ ],
+ "tables": [
+  {
+   "title": "Monthly plan vs actual",
+   "columns": [
+    {
+     "key": "month",
+     "label": "Month"
+    },
+    {
+     "key": "plan",
+     "label": "Plan INR",
+     "fmt": "inr"
+    },
+    {
+     "key": "po",
+     "label": "Actual PO INR",
+     "fmt": "inr"
+    },
+    {
+     "key": "gr",
+     "label": "Actual GR INR",
+     "fmt": "inr"
+    },
+    {
+     "key": "var",
+     "label": "Plan - PO INR",
+     "fmt": "inr"
+    },
+    {
+     "key": "var_pct",
+     "label": "Var % of plan",
+     "fmt": "num2"
+    }
+   ],
+   "rows": [
+    {
+     "month": "2024-01",
+     "plan": 76175468.13,
+     "po": 88691899.25,
+     "gr": 91668616.96,
+     "var": -12516431.12,
+     "var_pct": -16.43,
+     "table_var": -12516431.14
+    },
+    {
+     "month": "2024-02",
+     "plan": 145537850.63,
+     "po": 153598800.9,
+     "gr": 101122243.65,
+     "var": -8060950.27,
+     "var_pct": -5.54,
+     "table_var": -8060950.28
+    },
+    {
+     "month": "2024-03",
+     "plan": 198180293.94,
+     "po": 207697739.29,
+     "gr": 115366018.29,
+     "var": -9517445.35,
+     "var_pct": -4.8,
+     "table_var": -9517445.37
+    },
+    {
+     "month": "2024-04",
+     "plan": 102643321.71,
+     "po": 131365628.97,
+     "gr": 184699229.07,
+     "var": -28722307.26,
+     "var_pct": -27.98,
+     "table_var": -28722307.29
+    },
+    {
+     "month": "2024-05",
+     "plan": 113760940.11,
+     "po": 150693439.56,
+     "gr": 140708432.36,
+     "var": -36932499.45,
+     "var_pct": -32.47,
+     "table_var": -36932499.46
+    },
+    {
+     "month": "2024-06",
+     "plan": 118749392.84,
+     "po": 136131413.42,
+     "gr": 144775566.16,
+     "var": -17382020.58,
+     "var_pct": -14.64,
+     "table_var": -17382020.61
+    },
+    {
+     "month": "2024-07",
+     "plan": 123459930.28,
+     "po": 141011459.24,
+     "gr": 138451735.02,
+     "var": -17551528.96,
+     "var_pct": -14.22,
+     "table_var": -17551528.97
+    },
+    {
+     "month": "2024-08",
+     "plan": 317661688.91,
+     "po": 204348048.28,
+     "gr": 127044690.47,
+     "var": 113313640.63,
+     "var_pct": 35.67,
+     "table_var": 113313640.62
+    },
+    {
+     "month": "2024-09",
+     "plan": 189314987.69,
+     "po": 228813758.9,
+     "gr": 168397895.46,
+     "var": -39498771.21,
+     "var_pct": -20.86,
+     "table_var": -39498771.22
+    },
+    {
+     "month": "2024-10",
+     "plan": 182766669.6,
+     "po": 170106442.33,
+     "gr": 212043791.71,
+     "var": 12660227.27,
+     "var_pct": 6.93,
+     "table_var": 12660227.26
+    },
+    {
+     "month": "2024-11",
+     "plan": 164630967.38,
+     "po": 182724171.16,
+     "gr": 192341038.2,
+     "var": -18093203.78,
+     "var_pct": -10.99,
+     "table_var": -18093203.79
+    },
+    {
+     "month": "2024-12",
+     "plan": 159647935.54,
+     "po": 145246623.99,
+     "gr": 186215498.71,
+     "var": 14401311.55,
+     "var_pct": 9.02,
+     "table_var": 14401311.53
+    },
+    {
+     "month": "2025-01",
+     "plan": 110864874.07,
+     "po": 157089988.4,
+     "gr": 141271969.48,
+     "var": -46225114.33,
+     "var_pct": -41.7,
+     "table_var": -46225114.34
+    },
+    {
+     "month": "2025-02",
+     "plan": 191998501.15,
+     "po": 214836640.44,
+     "gr": 136728696.37,
+     "var": -22838139.29,
+     "var_pct": -11.89,
+     "table_var": -22838139.34
+    },
+    {
+     "month": "2025-03",
+     "plan": 259622174.16,
+     "po": 253037125.51,
+     "gr": 193841803.76,
+     "var": 6585048.65,
+     "var_pct": 2.54,
+     "table_var": 6585048.62
+    },
+    {
+     "month": "2025-04",
+     "plan": 164207036.24,
+     "po": 152426508.6,
+     "gr": 227778755.01,
+     "var": 11780527.64,
+     "var_pct": 7.17,
+     "table_var": 11780527.64
+    },
+    {
+     "month": "2025-05",
+     "plan": 188366799.47,
+     "po": 171205165.25,
+     "gr": 171061954.44,
+     "var": 17161634.22,
+     "var_pct": 9.11,
+     "table_var": 17161634.2
+    },
+    {
+     "month": "2025-06",
+     "plan": 170164266.79,
+     "po": 155176333.74,
+     "gr": 162253701.85,
+     "var": 14987933.05,
+     "var_pct": 8.81,
+     "table_var": 14987933.05
+    },
+    {
+     "month": "2025-07",
+     "plan": 176264324.08,
+     "po": 192236755.8,
+     "gr": 172275060.53,
+     "var": -15972431.72,
+     "var_pct": -9.06,
+     "table_var": -15972431.75
+    },
+    {
+     "month": "2025-08",
+     "plan": 255435060.39,
+     "po": 231643432.79,
+     "gr": 176286357.07,
+     "var": 23791627.6,
+     "var_pct": 9.31,
+     "table_var": 23791627.58
+    },
+    {
+     "month": "2025-09",
+     "plan": 286017198.63,
+     "po": 241980327.74,
+     "gr": 192217380.42,
+     "var": 44036870.89,
+     "var_pct": 15.4,
+     "table_var": 44036870.89
+    },
+    {
+     "month": "2025-10",
+     "plan": 212633052.94,
+     "po": 208403561.87,
+     "gr": 239811347.63,
+     "var": 4229491.07,
+     "var_pct": 1.99,
+     "table_var": 4229491.04
+    },
+    {
+     "month": "2025-11",
+     "plan": 228405213.95,
+     "po": 178897409.49,
+     "gr": 194227741.46,
+     "var": 49507804.46,
+     "var_pct": 21.68,
+     "table_var": 49507804.45
+    },
+    {
+     "month": "2025-12",
+     "plan": 181558280.02,
+     "po": 181521881.54,
+     "gr": 193353657.87,
+     "var": 36398.48,
+     "var_pct": 0.02,
+     "table_var": 36398.46
+    }
+   ]
+  }
+ ],
+ "notes": [
+  "Variance is plan minus PO value; it matches the table's own VARIANCE_INR to within INR 0.1 each month (rounding).",
+  "This section is not scoped to the 50 materials and cannot be, so its totals do not tie to the other pages.",
+  "Not a measure of this system's effect: the plan and the POs predate it."
+ ]
+}

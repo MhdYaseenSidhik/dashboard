@@ -1,0 +1,374 @@
+{
+ "id": "sec06_shutdown_maintenance",
+ "nav": "Shutdown & maintenance",
+ "title": "Shutdown and maintenance",
+ "intro": "Completed shutdowns in the window, what they drew from the 50 materials, and how well today's stock would cover a repeat of them.",
+ "tiles": [
+  {
+   "label": "Shutdown-flagged materials",
+   "value": "14 of 50",
+   "definition": "DIM_MATERIAL.SHUTDOWN_MATERIAL_FLAG = 'Y'.",
+   "baseline": "50 demo materials",
+   "period": "As-of 2025-12-31",
+   "refreshed": "As-of 2025-12-31",
+   "source": "RAW DIM_MATERIAL",
+   "status": null,
+   "extra": null
+  },
+  {
+   "label": "Historical shutdown requirement",
+   "value": "18,372 units",
+   "definition": "Sum of FACT_SHUTDOWN_SCHEDULE REQUIRED_QTY for the 50 over 4 completed events, non-backcast only.",
+   "baseline": "Events SD0027 to SD0030 (2024-03 to 2025-09)",
+   "period": "Jan 2024 to Dec 2025",
+   "refreshed": "As-of 2025-12-31",
+   "source": "RAW DIM_SHUTDOWN_EVENT + FACT_SHUTDOWN_SCHEDULE",
+   "status": null,
+   "extra": null
+  },
+  {
+   "label": "Projected next shutdown need",
+   "value": "Not computable on demo scope",
+   "definition": "Requirement for a future event.",
+   "baseline": "None",
+   "period": "n/a",
+   "refreshed": "As-of 2025-12-31",
+   "source": "None: no future event exists",
+   "status": "not_computable",
+   "extra": null
+  }
+ ],
+ "charts": [
+  {
+   "id": "prmix",
+   "title": "PR lines per month by PR type, 50 demo materials",
+   "type": "stackedbar",
+   "labels": [
+    "2024-01",
+    "2024-02",
+    "2024-03",
+    "2024-04",
+    "2024-05",
+    "2024-06",
+    "2024-07",
+    "2024-08",
+    "2024-09",
+    "2024-10",
+    "2024-11",
+    "2024-12",
+    "2025-01",
+    "2025-02",
+    "2025-03",
+    "2025-04",
+    "2025-05",
+    "2025-06",
+    "2025-07",
+    "2025-08",
+    "2025-09",
+    "2025-10",
+    "2025-11",
+    "2025-12"
+   ],
+   "series": [
+    {
+     "name": "ZSPR",
+     "data": [
+      4,
+      10,
+      8,
+      8,
+      9,
+      4,
+      9,
+      2,
+      10,
+      6,
+      5,
+      3,
+      4,
+      10,
+      10,
+      6,
+      7,
+      5,
+      4,
+      4,
+      8,
+      5,
+      7,
+      6
+     ]
+    },
+    {
+     "name": "ZSTD",
+     "data": [
+      28,
+      29,
+      28,
+      26,
+      27,
+      27,
+      21,
+      19,
+      25,
+      15,
+      25,
+      18,
+      21,
+      26,
+      15,
+      21,
+      18,
+      21,
+      25,
+      21,
+      22,
+      16,
+      21,
+      21
+     ]
+    },
+    {
+     "name": "ZSDN",
+     "data": [
+      4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  }
+ ],
+ "tables": [
+  {
+   "title": "Shutdown events in scope (IS_BACKCAST_PERIOD = 'N')",
+   "columns": [
+    {
+     "key": "shutdown_id",
+     "label": "Event"
+    },
+    {
+     "key": "start",
+     "label": "Start"
+    },
+    {
+     "key": "end",
+     "label": "End"
+    },
+    {
+     "key": "status",
+     "label": "Status"
+    },
+    {
+     "key": "lines",
+     "label": "Lines (50)",
+     "fmt": "int"
+    },
+    {
+     "key": "required",
+     "label": "Required qty",
+     "fmt": "num0"
+    }
+   ],
+   "rows": [
+    {
+     "shutdown_id": "SD0027",
+     "start": "2024-03-14",
+     "end": "2024-03-19",
+     "status": "COMPLETED",
+     "lines": 7,
+     "required": 4332.0
+    },
+    {
+     "shutdown_id": "SD0028",
+     "start": "2024-09-19",
+     "end": "2024-10-03",
+     "status": "COMPLETED",
+     "lines": 8,
+     "required": 4813.0
+    },
+    {
+     "shutdown_id": "SD0029",
+     "start": "2025-03-12",
+     "end": "2025-03-19",
+     "status": "COMPLETED",
+     "lines": 9,
+     "required": 7610.0
+    },
+    {
+     "shutdown_id": "SD0030",
+     "start": "2025-09-18",
+     "end": "2025-09-29",
+     "status": "COMPLETED",
+     "lines": 4,
+     "required": 1617.0
+    }
+   ]
+  },
+  {
+   "title": "Cover of historical requirement, lowest cover first",
+   "columns": [
+    {
+     "key": "material",
+     "label": "Material"
+    },
+    {
+     "key": "criticality",
+     "label": "Criticality"
+    },
+    {
+     "key": "required_qty",
+     "label": "Required (4 events)",
+     "fmt": "num0"
+    },
+    {
+     "key": "closing_qty",
+     "label": "Closing",
+     "fmt": "num0"
+    },
+    {
+     "key": "cover_pct",
+     "label": "Cover %",
+     "fmt": "num1"
+    },
+    {
+     "key": "unit_cost",
+     "label": "Unit cost INR",
+     "fmt": "inr"
+    }
+   ],
+   "rows": [
+    {
+     "material": "HZL1003912",
+     "required_qty": 763.0,
+     "closing_qty": 0.0,
+     "cover_pct": 0.0,
+     "unit_cost": 6473.88,
+     "criticality": "DESIRABLE"
+    },
+    {
+     "material": "HZL1004840",
+     "required_qty": 2267.0,
+     "closing_qty": 169.0,
+     "cover_pct": 7.5,
+     "unit_cost": 6075.91,
+     "criticality": "DESIRABLE"
+    },
+    {
+     "material": "HZL1003910",
+     "required_qty": 1734.0,
+     "closing_qty": 211.0,
+     "cover_pct": 12.2,
+     "unit_cost": 7108.19,
+     "criticality": "ESSENTIAL"
+    },
+    {
+     "material": "HZL1004837",
+     "required_qty": 6330.0,
+     "closing_qty": 1588.0,
+     "cover_pct": 25.1,
+     "unit_cost": 6518.48,
+     "criticality": "VITAL"
+    },
+    {
+     "material": "HZL1003336",
+     "required_qty": 526.0,
+     "closing_qty": 180.0,
+     "cover_pct": 34.2,
+     "unit_cost": 5171.98,
+     "criticality": "ESSENTIAL"
+    },
+    {
+     "material": "HZL1004504",
+     "required_qty": 2140.0,
+     "closing_qty": 761.0,
+     "cover_pct": 35.6,
+     "unit_cost": 6650.08,
+     "criticality": "DESIRABLE"
+    },
+    {
+     "material": "HZL1004486",
+     "required_qty": 673.0,
+     "closing_qty": 300.0,
+     "cover_pct": 44.6,
+     "unit_cost": 4985.01,
+     "criticality": "VITAL"
+    },
+    {
+     "material": "HZL1005107",
+     "required_qty": 349.0,
+     "closing_qty": 221.0,
+     "cover_pct": 63.3,
+     "unit_cost": 8114.1,
+     "criticality": "VITAL"
+    },
+    {
+     "material": "HZL1004836",
+     "required_qty": 1977.0,
+     "closing_qty": 1483.0,
+     "cover_pct": 75.0,
+     "unit_cost": 5368.67,
+     "criticality": "VITAL"
+    },
+    {
+     "material": "HZL1004812",
+     "required_qty": 515.0,
+     "closing_qty": 407.0,
+     "cover_pct": 79.0,
+     "unit_cost": 7611.43,
+     "criticality": "VITAL"
+    },
+    {
+     "material": "HZL1004844",
+     "required_qty": 440.0,
+     "closing_qty": 366.0,
+     "cover_pct": 83.2,
+     "unit_cost": 6307.23,
+     "criticality": "VITAL"
+    },
+    {
+     "material": "HZL1004476",
+     "required_qty": 302.0,
+     "closing_qty": 358.0,
+     "cover_pct": 118.5,
+     "unit_cost": 6173.8,
+     "criticality": "DESIRABLE"
+    },
+    {
+     "material": "HZL1003916",
+     "required_qty": 356.0,
+     "closing_qty": 481.0,
+     "cover_pct": 135.1,
+     "unit_cost": 6616.11,
+     "criticality": "ESSENTIAL"
+    }
+   ]
+  }
+ ],
+ "notes": [
+  "Projected shutdown need is not computable on demo scope: DIM_SHUTDOWN_EVENT holds no future shutdown (latest SD0030 ended 2025-09-29, COMPLETED) and the ContextFlow forecast covers net issues, not shutdown demand. A cadence-based projection would be an extrapolation.",
+  "Two events (SD0025, SD0026) are backcast and are excluded.",
+  "Cover % compares today's stock with the requirement of all four past events together; it is a stress view, not a forecast."
+ ]
+}

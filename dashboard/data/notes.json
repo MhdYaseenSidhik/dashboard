@@ -1,0 +1,22 @@
+{
+ "id": "notes",
+ "nav": "Notes",
+ "title": "Notes and gaps",
+ "intro": "Everything the numbers depend on, and everything that could not be computed.",
+ "tiles": [],
+ "charts": [],
+ "tables": [],
+ "notes": [
+  "Scope: The net-issue series reads FACT_MATERIAL_MOVEMENT_PART_001 to 004: PART_001 alone holds this plant's non-backcast 261/262 postings only up to 2024-07-19 (PART_002 to 2025-03-17, PART_003 to 2025-10-18, PART_004 to 2025-12-31). ZSPR/ZSPN, IS_BACKCAST_PERIOD='N', Jan 2024 to Dec 2025, INR.",
+  "Banner reads PART_001 as the brief requires. The data come from PART_001 to 004. Whether to reword the banner or rebuild on PART_001 alone is open (issue #34); PART_001 alone gives a top-50 sum of 36,165.000.",
+  "Engine: ContextFlow on-prem, experiment 6aeb1d0f2362f14961979898 ('HZL demo forecast v3'), preset fast, prediction length 6, holdout fraction 0.25, primary metric WQL. The brief asked for 12 months and holdout 6; the engine horizon is 6, so 12-month figures are Not computable on demo scope.",
+  "Best model as the engine returned it: WeightedEnsemble, WQL 0.757317. Leaderboard: ETS 0.76902; DirectTabular 0.776294; RecursiveTabular 0.90806; SeasonalNaive 0.918111; Naive 0.918111.",
+  "Engine warning, verbatim: \"Holdout diagnostics unavailable: ValueError: 0'th time-series in data must be a dict, got<class 'numpy.ndarray'>\". WAPE is recomputed from the downloaded holdout evaluation file (sha256 6d27812241fff73ee43a7fa701a4a837f260c7a65c7089a96940846f94e4b5a9).",
+  "Forward forecast covers 45 of 50 series (issue #21). Missing: HZL1005107, HZL1005876, HZL1005880, HZL1005932, HZL1005933. They are Not computable, never filled.",
+  "The forward forecast ran through ContextFlow predict-batch on an uploaded copy (upload file id 6aeb29982362f149619798b9) of the RAW-verified series, data/demo_net_issue_series.csv (sha256 b1ccc7f455640725d5af0b79d003be40daefd81d7bed7ca0465a9f239c1715be).",
+  "Tables read. RAW: FACT_MATERIAL_MOVEMENT_PART_001..004, FACT_INVENTORY_SNAPSHOT_PART_001..003, DIM_MATERIAL, MATERIAL_PLANT_CLASSIFICATION, DIM_SHUTDOWN_EVENT, FACT_SHUTDOWN_SCHEDULE, FACT_PURCHASE_REQUISITION, FACT_PURCHASE_ORDER, FACT_GOODS_RECEIPT, BUSINESS_PLAN_VS_ACTUAL. Curated (reconciliation only): INVENTORY_CLASSIFICATION, INVENTORY_KPI_MONTHLY, REORDER_RECOMMENDATION.",
+  "Not computable on demo scope: KPIs 2, 3, 4, 7, 10 (as a scored figure) and 13; 12-month forecasts; MRP type VB/PD; projected shutdown need; non-moving, slow-moving and obsolete windows (not recorded in the tables read).",
+  "Reductions seen in curated plant-wide series (for example obsolete value) are simulated baselines and are not claimed as results of this system.",
+  "All SAP access was read-only SELECT. Nothing was written to SAP. No email was sent."
+ ]
+}

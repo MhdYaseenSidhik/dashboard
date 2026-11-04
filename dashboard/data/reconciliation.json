@@ -1,0 +1,119 @@
+{
+ "id": "reconciliation",
+ "nav": "Reconciliation",
+ "title": "Reconciliation, RAW against curated",
+ "intro": "RAW is the system of record. Curated tables carry GENERATION_SEED 20260921 and a disclaimer; where they differ from RAW both values are shown and flagged.",
+ "tiles": [],
+ "charts": [],
+ "tables": [
+  {
+   "title": "RAW vs curated",
+   "columns": [
+    {
+     "key": "item",
+     "label": "Item"
+    },
+    {
+     "key": "raw",
+     "label": "RAW"
+    },
+    {
+     "key": "curated",
+     "label": "Curated"
+    },
+    {
+     "key": "result",
+     "label": "Result"
+    },
+    {
+     "key": "state",
+     "label": "State",
+     "fmt": "state"
+    }
+   ],
+   "rows": [
+    {
+     "item": "Series sum NET_QTY (50 x 24 = 1,200 rows)",
+     "raw": "171,630.000",
+     "curated": "n/a",
+     "result": "RAW recompute equals the series; COUNT 1,200; 1,046 non-zero rows",
+     "state": "match"
+    },
+    {
+     "item": "Movement class, 50 materials",
+     "raw": "48 ACTIVE, 2 SLOW_MOVING",
+     "curated": "48 ACTIVE, 2 SLOW_MOVING",
+     "result": "Equal",
+     "state": "match"
+    },
+    {
+     "item": "Stock-out materials (closing <= 0)",
+     "raw": "15",
+     "curated": "15 STOCKOUT",
+     "result": "Equal",
+     "state": "match"
+    },
+    {
+     "item": "Gross stock value, the 50, 2025-12-31",
+     "raw": "INR 78,735,327.75 (12,407 units)",
+     "curated": "INR 78,735,327.75 (INVENTORY_CLASSIFICATION, 12,407 units)",
+     "result": "Equal",
+     "state": "match"
+    },
+    {
+     "item": "Gross stock value, plant-wide ZSPR/ZSPN, 2025-12-31",
+     "raw": "INR 1,079,888,374.64 (5,893 lines)",
+     "curated": "INR 1,079,888,374.64 (INVENTORY_KPI_MONTHLY)",
+     "result": "Equal. The 50 are 7.29% of it.",
+     "state": "match"
+    },
+    {
+     "item": "Gross inventory reduction vs lowest FY2024-25 month-end",
+     "raw": "-54.87% (stock is 54.87% above baseline)",
+     "curated": "6.44% reduction; baseline INR 1,154,272,460.99 on 2025-02, closing INR 1,079,888,374.64",
+     "result": "Diverges: the 50 materials rose, the plant fell. Different scope, both shown.",
+     "state": "diverges"
+    },
+    {
+     "item": "Excess inventory value",
+     "raw": "INR 4,160,888.80 (50 materials, 6 lines, 6-month forecast rule)",
+     "curated": "INR 240,798,934.10 (plant-wide)",
+     "result": "Diverges: different scope and rule. Both shown, neither adjusted.",
+     "state": "diverges"
+    },
+    {
+     "item": "ROP total, 50 materials",
+     "raw": "70,983.429 (DIM_MATERIAL)",
+     "curated": "25,889.949 (INVENTORY_CLASSIFICATION)",
+     "result": "Diverges: curated is about a third of master. Both shown.",
+     "state": "diverges"
+    },
+    {
+     "item": "Max stock total, 50 materials",
+     "raw": "95,670.035",
+     "curated": "33,618.671",
+     "result": "Diverges. Both shown.",
+     "state": "diverges"
+    },
+    {
+     "item": "PR recommendation lines",
+     "raw": "37 due in 90 days (derived)",
+     "curated": "18 (REORDER_RECOMMENDATION)",
+     "result": "Diverges. Both shown.",
+     "state": "diverges"
+    },
+    {
+     "item": "PR lines, calendar 2024 and 2025",
+     "raw": "372 and 329 (50 materials)",
+     "curated": "12,547 and 16,293 (plant-wide PR_COUNT)",
+     "result": "Different scope; the curated total rises, the 50 fall.",
+     "state": "diverges"
+    }
+   ]
+  }
+ ],
+ "notes": [
+  "5 lines match, 6 diverge.",
+  "Curated tables read: INVENTORY_CLASSIFICATION, INVENTORY_KPI_MONTHLY, REORDER_RECOMMENDATION (schema, counts and the figures above only)."
+ ]
+}

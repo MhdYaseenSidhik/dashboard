@@ -1,0 +1,58 @@
+{
+  "experiment_id": "6aeb1d0f2362f14961979898",
+  "experiment_name": "HZL demo forecast v3",
+  "asset_id": "6aeb1cdc9eb9bc04a93bb2f8",
+  "engine": "onprem",
+  "preset": "fast",
+  "predictionLength": 6,
+  "holdout_fraction": 0.25,
+  "series": 50,
+  "rows_train_plus_holdout": 1200,
+  "best_model": "WeightedEnsemble",
+  "primary_metric": "WQL",
+  "leaderboard": [
+    {
+      "rank": 1,
+      "model": "WeightedEnsemble",
+      "WQL": 0.757317
+    },
+    {
+      "rank": 2,
+      "model": "ETS",
+      "WQL": 0.76902
+    },
+    {
+      "rank": 3,
+      "model": "DirectTabular",
+      "WQL": 0.776294
+    },
+    {
+      "rank": 4,
+      "model": "RecursiveTabular",
+      "WQL": 0.90806
+    },
+    {
+      "rank": 5,
+      "model": "SeasonalNaive",
+      "WQL": 0.918111
+    },
+    {
+      "rank": 6,
+      "model": "Naive",
+      "WQL": 0.918111
+    }
+  ],
+  "engine_warning": "Holdout diagnostics unavailable: ValueError: 0'th time-series in data must be a dict, got<class 'numpy.ndarray'>",
+  "kpi5_demand_accuracy_1_minus_WAPE_6m": 0.1626,
+  "wape_6m": 0.8374,
+  "wape_3m_oct_dec_2025": 0.8543,
+  "accuracy_3m_1_minus_WAPE": 0.1457,
+  "holdout_sum_actual": 61375.0,
+  "holdout_sum_predicted": 32236.358,
+  "within_interval_share": 0.8767,
+  "holdout_sha256": "6d27812241fff73ee43a7fa701a4a837f260c7a65c7089a96940846f94e4b5a9",
+  "forward_6m_forecast": "NOT PRODUCED - predict-batch not run: dataset artifact unavailable and upload file not rebuilt from engine input",
+  "kpi6_inventory_forecast_accuracy_gt_90pct": "Not met on holdout (1-WAPE 0.163); see notes",
+  "kpi7_nm_sm_f1": "Not computable on demo scope (no NM/SM classifier run in this experiment)",
+  "kpi6_12m": "Not computable on demo scope (24 months history, 6-month horizon)"
+}

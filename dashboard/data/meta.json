@@ -1,0 +1,106 @@
+{
+ "banner": "Demo scope: PART_001, plant HZL_DEMO_05, top 50 materials.",
+ "scope_note": "The net-issue series reads FACT_MATERIAL_MOVEMENT_PART_001 to 004: PART_001 alone holds this plant's non-backcast 261/262 postings only up to 2024-07-19 (PART_002 to 2025-03-17, PART_003 to 2025-10-18, PART_004 to 2025-12-31). ZSPR/ZSPN, IS_BACKCAST_PERIOD='N', Jan 2024 to Dec 2025, INR.",
+ "as_of": "2025-12-31",
+ "plant": "HZL_DEMO_05",
+ "currency": "INR",
+ "refreshed": "Data as-of 2025-12-31; site data built from RAW extracts and ContextFlow outputs in this repository",
+ "engine": {
+  "name": "ContextFlow on-prem AutoML",
+  "experiment_id": "6aeb1d0f2362f14961979898",
+  "asset_id": "6aeb1cdc9eb9bc04a93bb2f8",
+  "best_model": "WeightedEnsemble",
+  "primary_metric": "WQL",
+  "wql": 0.757317,
+  "leaderboard": [
+   {
+    "rank": 1,
+    "model": "WeightedEnsemble",
+    "WQL": 0.757317
+   },
+   {
+    "rank": 2,
+    "model": "ETS",
+    "WQL": 0.76902
+   },
+   {
+    "rank": 3,
+    "model": "DirectTabular",
+    "WQL": 0.776294
+   },
+   {
+    "rank": 4,
+    "model": "RecursiveTabular",
+    "WQL": 0.90806
+   },
+   {
+    "rank": 5,
+    "model": "SeasonalNaive",
+    "WQL": 0.918111
+   },
+   {
+    "rank": 6,
+    "model": "Naive",
+    "WQL": 0.918111
+   }
+  ],
+  "warning": "Holdout diagnostics unavailable: ValueError: 0'th time-series in data must be a dict, got<class 'numpy.ndarray'>"
+ },
+ "sections": [
+  {
+   "id": "sec01_kpi_scorecard",
+   "nav": "KPI scorecard"
+  },
+  {
+   "id": "sec02_demand_forecast",
+   "nav": "Demand forecast"
+  },
+  {
+   "id": "sec03_inventory_health",
+   "nav": "Inventory health"
+  },
+  {
+   "id": "sec04_over_understock",
+   "nav": "Over / understock"
+  },
+  {
+   "id": "sec05_nm_sm_prediction",
+   "nav": "NM / SM prediction"
+  },
+  {
+   "id": "sec06_shutdown_maintenance",
+   "nav": "Shutdown & maintenance"
+  },
+  {
+   "id": "sec07_pr_recommendations",
+   "nav": "PR recommendations"
+  },
+  {
+   "id": "sec08_mrp_rop",
+   "nav": "MRP / ROP"
+  },
+  {
+   "id": "sec09_duplicate_skus",
+   "nav": "Duplicate SKUs"
+  },
+  {
+   "id": "sec10_plan_vs_actual",
+   "nav": "Plan vs actual"
+  }
+ ],
+ "extra": [
+  {
+   "id": "reconciliation",
+   "nav": "Reconciliation"
+  },
+  {
+   "id": "notes",
+   "nav": "Notes"
+  }
+ ],
+ "kpi_counts": {
+  "met": 0,
+  "not_met": 7,
+  "not_computable": 6
+ }
+}

@@ -1,0 +1,182 @@
+{
+ "id": "sec09_duplicate_skus",
+ "nav": "Duplicate SKUs",
+ "title": "Duplicate SKUs",
+ "intro": "Candidate duplicates for the 50 materials, found by identical description. Candidates need a planner's confirmation before anything is merged.",
+ "tiles": [
+  {
+   "label": "Duplicate groups touching the 50",
+   "value": "4",
+   "definition": "Two or more ZSPR/ZSPN materials with an identical MATERIAL_DESCRIPTION, searched across all ZSPR/ZSPN.",
+   "baseline": "Exact-description match only",
+   "period": "As-of 2025-12-31",
+   "refreshed": "As-of 2025-12-31",
+   "source": "RAW DIM_MATERIAL",
+   "status": null,
+   "extra": null
+  },
+  {
+   "label": "Duplicate SKU identification (KPI 10)",
+   "value": "Not computable on demo scope",
+   "definition": "Recall against a labelled list of true duplicates, target 100%.",
+   "baseline": "None: no labelled list exists",
+   "period": "n/a",
+   "refreshed": "As-of 2025-12-31",
+   "source": "None",
+   "status": "not_computable",
+   "extra": null
+  },
+  {
+   "label": "Stock held on the extra SKUs",
+   "value": "INR 1,048,300.71",
+   "definition": "Closing qty x unit cost on the duplicate SKUs that sit outside the 50, at 2025-12-31.",
+   "baseline": "Same-plant stock",
+   "period": "As-of 2025-12-31",
+   "refreshed": "As-of 2025-12-31",
+   "source": "RAW FACT_INVENTORY_SNAPSHOT_PART_003 + DIM_MATERIAL",
+   "status": null,
+   "extra": null
+  }
+ ],
+ "charts": [],
+ "tables": [
+  {
+   "title": "Candidate duplicate groups (4 groups, 9 materials)",
+   "columns": [
+    {
+     "key": "description",
+     "label": "Description"
+    },
+    {
+     "key": "material",
+     "label": "Material"
+    },
+    {
+     "key": "type",
+     "label": "Type"
+    },
+    {
+     "key": "criticality",
+     "label": "Criticality"
+    },
+    {
+     "key": "unit_cost",
+     "label": "Unit cost INR",
+     "fmt": "inr"
+    },
+    {
+     "key": "closing_qty",
+     "label": "Closing",
+     "fmt": "num0"
+    },
+    {
+     "key": "value",
+     "label": "Value INR",
+     "fmt": "inr"
+    },
+    {
+     "key": "scope",
+     "label": "Scope"
+    }
+   ],
+   "rows": [
+    {
+     "description": "Plummer Block Housing 45MM GR-A",
+     "material": "HZL1004480",
+     "type": "ZSPR",
+     "criticality": "DESIRABLE",
+     "unit_cost": 5539.96,
+     "closing_qty": 263.0,
+     "value": 1457009.48,
+     "scope": "In the 50"
+    },
+    {
+     "description": "Plummer Block Housing 45MM GR-A",
+     "material": "HZL1004632",
+     "type": "ZSPN",
+     "criticality": "VITAL",
+     "unit_cost": 6188.06,
+     "closing_qty": 20.0,
+     "value": 123761.2,
+     "scope": "Outside the 50"
+    },
+    {
+     "description": "Plummer Block Housing 45MM GR-A",
+     "material": "HZL1005895",
+     "type": "ZSPR",
+     "criticality": "ESSENTIAL",
+     "unit_cost": 1835.11,
+     "closing_qty": 22.0,
+     "value": 40372.42,
+     "scope": "Outside the 50"
+    },
+    {
+     "description": "Needle Roller Bearing 22MM XP",
+     "material": "HZL1005876",
+     "type": "ZSPN",
+     "criticality": "DESIRABLE",
+     "unit_cost": 4963.21,
+     "closing_qty": 121.0,
+     "value": 600548.41,
+     "scope": "In the 50"
+    },
+    {
+     "description": "Needle Roller Bearing 22MM XP",
+     "material": "HZL1004791",
+     "type": "ZSPR",
+     "criticality": "VITAL",
+     "unit_cost": 7662.22,
+     "closing_qty": 106.0,
+     "value": 812195.32,
+     "scope": "Outside the 50"
+    },
+    {
+     "description": "Return Roller 294MM GR-A",
+     "material": "HZL1002484",
+     "type": "ZSPN",
+     "criticality": "VITAL",
+     "unit_cost": 9188.36,
+     "closing_qty": 66.0,
+     "value": 606431.76,
+     "scope": "In the 50"
+    },
+    {
+     "description": "Return Roller 294MM GR-A",
+     "material": "HZL1002964",
+     "type": "ZSPR",
+     "criticality": "DESIRABLE",
+     "unit_cost": 12875.7,
+     "closing_qty": 0.0,
+     "value": 0.0,
+     "scope": "Outside the 50"
+    },
+    {
+     "description": "Deep Groove Ball Bearing 238MM GR-A",
+     "material": "HZL1004839",
+     "type": "ZSPN",
+     "criticality": "DESIRABLE",
+     "unit_cost": 5888.11,
+     "closing_qty": 0.0,
+     "value": 0.0,
+     "scope": "In the 50"
+    },
+    {
+     "description": "Deep Groove Ball Bearing 238MM GR-A",
+     "material": "HZL1000219",
+     "type": "ZSPN",
+     "criticality": "DESIRABLE",
+     "unit_cost": 5536.29,
+     "closing_qty": 13.0,
+     "value": 71971.77,
+     "scope": "Outside the 50"
+    }
+   ]
+  }
+ ],
+ "notes": [
+  "Identification is not scored: with no labelled list of true duplicates, a recall or precision figure would be invented.",
+  "Only exact descriptions are matched. Near-duplicates (a different size or grade code) are not searched, so this list is a floor.",
+  "Criticality differs inside several groups (for example HZL1004632 VITAL against HZL1004480 DESIRABLE). A merge must not take a VITAL item down to DESIRABLE cover.",
+  "Curated DUPLICATE_SKU_OPPORTUNITY_INR is INR 4,526,574.64 plant-wide, MODELED_OPPORTUNITY, not reconciled to this list."
+ ]
+}

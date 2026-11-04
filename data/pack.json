@@ -1,0 +1,222 @@
+{
+  "scope": "Demo scope: PART_001, plant HZL_DEMO_05, top 50 materials.",
+  "as_of": "2025-12-31",
+  "plant": "HZL_DEMO_05",
+  "experiment_id": "6aeb1d0f2362f14961979898",
+  "asset_id": "6aeb1cdc9eb9bc04a93bb2f8",
+  "upload_file_id": "6aeb29982362f149619798b9",
+  "model": {
+    "best_candidate": "WeightedEnsemble",
+    "primary_metric": "WQL",
+    "leaderboard": [
+      {
+        "rank": 1,
+        "model": "WeightedEnsemble",
+        "WQL": 0.757317
+      },
+      {
+        "rank": 2,
+        "model": "ETS",
+        "WQL": 0.76902
+      },
+      {
+        "rank": 3,
+        "model": "DirectTabular",
+        "WQL": 0.776294
+      },
+      {
+        "rank": 4,
+        "model": "RecursiveTabular",
+        "WQL": 0.90806
+      },
+      {
+        "rank": 5,
+        "model": "SeasonalNaive",
+        "WQL": 0.918111
+      },
+      {
+        "rank": 6,
+        "model": "Naive",
+        "WQL": 0.918111
+      }
+    ],
+    "engine_warning": "Holdout diagnostics unavailable: ValueError: 0'th time-series in data must be a dict, got<class 'numpy.ndarray'>"
+  },
+  "metrics": {
+    "wape_6m": 0.8374,
+    "accuracy_6m_1_minus_wape": 0.1626,
+    "wape_3m_oct_dec_2025": 0.8543,
+    "within_interval_share": 0.8767,
+    "holdout_sum_actual": 61375.0,
+    "holdout_sum_predicted": 32236.358,
+    "holdout_rows": 300,
+    "holdout_sha256": "6d27812241fff73ee43a7fa701a4a837f260c7a65c7089a96940846f94e4b5a9"
+  },
+  "history": [
+    {
+      "month": "2024-01",
+      "net_qty": 7465.0
+    },
+    {
+      "month": "2024-02",
+      "net_qty": 6968.0
+    },
+    {
+      "month": "2024-03",
+      "net_qty": 3554.0
+    },
+    {
+      "month": "2024-04",
+      "net_qty": 5967.0
+    },
+    {
+      "month": "2024-05",
+      "net_qty": 3545.0
+    },
+    {
+      "month": "2024-06",
+      "net_qty": 3234.0
+    },
+    {
+      "month": "2024-07",
+      "net_qty": 3459.0
+    },
+    {
+      "month": "2024-08",
+      "net_qty": 7007.0
+    },
+    {
+      "month": "2024-09",
+      "net_qty": 3099.0
+    },
+    {
+      "month": "2024-10",
+      "net_qty": 4946.0
+    },
+    {
+      "month": "2024-11",
+      "net_qty": 3706.0
+    },
+    {
+      "month": "2024-12",
+      "net_qty": 4248.0
+    },
+    {
+      "month": "2025-01",
+      "net_qty": 17599.0
+    },
+    {
+      "month": "2025-02",
+      "net_qty": 8668.0
+    },
+    {
+      "month": "2025-03",
+      "net_qty": 9518.0
+    },
+    {
+      "month": "2025-04",
+      "net_qty": 5760.0
+    },
+    {
+      "month": "2025-05",
+      "net_qty": 4902.0
+    },
+    {
+      "month": "2025-06",
+      "net_qty": 6610.0
+    },
+    {
+      "month": "2025-07",
+      "net_qty": 10779.0
+    },
+    {
+      "month": "2025-08",
+      "net_qty": 4994.0
+    },
+    {
+      "month": "2025-09",
+      "net_qty": 13007.0
+    },
+    {
+      "month": "2025-10",
+      "net_qty": 10371.0
+    },
+    {
+      "month": "2025-11",
+      "net_qty": 9578.0
+    },
+    {
+      "month": "2025-12",
+      "net_qty": 12646.0
+    }
+  ],
+  "holdout": [
+    {
+      "month": "2025-07",
+      "actual": 10779.0,
+      "predicted": 5187.8
+    },
+    {
+      "month": "2025-08",
+      "actual": 4994.0,
+      "predicted": 5173.2
+    },
+    {
+      "month": "2025-09",
+      "actual": 13007.0,
+      "predicted": 5255.3
+    },
+    {
+      "month": "2025-10",
+      "actual": 10371.0,
+      "predicted": 5898.4
+    },
+    {
+      "month": "2025-11",
+      "actual": 9578.0,
+      "predicted": 5372.2
+    },
+    {
+      "month": "2025-12",
+      "actual": 12646.0,
+      "predicted": 5349.5
+    }
+  ],
+  "forward": [
+    {
+      "month": "2026-01",
+      "forecast_45_series": 8395.4
+    },
+    {
+      "month": "2026-02",
+      "forecast_45_series": 8465.2
+    },
+    {
+      "month": "2026-03",
+      "forecast_45_series": 8488.8
+    },
+    {
+      "month": "2026-04",
+      "forecast_45_series": 9248.1
+    },
+    {
+      "month": "2026-05",
+      "forecast_45_series": 8226.5
+    },
+    {
+      "month": "2026-06",
+      "forecast_45_series": 8156.7
+    }
+  ],
+  "forward_series_count": 45,
+  "forward_series_expected": 50,
+  "raw_check": {
+    "n_materials": 50,
+    "rows": 1200,
+    "months": 24,
+    "sum_net_qty": 171630.0,
+    "nonzero_rows": 1046,
+    "raw_sum_net_qty": 171630.0,
+    "raw_nonzero_rows": 1046
+  }
+}

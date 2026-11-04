@@ -1,0 +1,466 @@
+{
+ "id": "sec03_inventory_health",
+ "nav": "Inventory health",
+ "title": "Inventory health",
+ "intro": "Where the stock sits at 2025-12-31 and how it moved since Jan 2024, for the 50 demo materials. Stock fell sharply in Jan 2025, then climbed back through FY2025-26.",
+ "tiles": [
+  {
+   "label": "Gross inventory value",
+   "value": "INR 78,735,327.75",
+   "definition": "Closing qty x unit cost, ZSPR/ZSPN, 50 demo materials, plant HZL_DEMO_05.",
+   "baseline": "Not a baseline: a level",
+   "period": "As-of 2025-12-31",
+   "refreshed": "As-of 2025-12-31",
+   "source": "RAW FACT_INVENTORY_SNAPSHOT_PART_001..003 x DIM_MATERIAL; curated INVENTORY_CLASSIFICATION agrees (INR 78,735,327.75, 12,407 units)",
+   "status": null,
+   "extra": null
+  },
+  {
+   "label": "Baseline: lowest FY2024-25 month-end",
+   "value": "INR 50,838,571.29",
+   "definition": "Lowest month-end stock value from 2024-04-30 to 2025-03-31, the baseline for the reduction KPI.",
+   "baseline": "Month-end 2025-01-31",
+   "period": "FY2024-25",
+   "refreshed": "As-of 2025-12-31",
+   "source": "RAW FACT_INVENTORY_SNAPSHOT_PART_001..003 x DIM_MATERIAL",
+   "status": null,
+   "extra": null
+  },
+  {
+   "label": "Movement in the 50",
+   "value": "48 ACTIVE, 2 SLOW_MOVING",
+   "definition": "MOVEMENT_CLASS from MATERIAL_PLANT_CLASSIFICATION; windows are those of the source table, not restated here.",
+   "baseline": "Curated INVENTORY_CLASSIFICATION matches",
+   "period": "As-of 2025-12-31",
+   "refreshed": "As-of 2025-12-31",
+   "source": "RAW MATERIAL_PLANT_CLASSIFICATION vs curated INVENTORY_CLASSIFICATION",
+   "status": null,
+   "extra": null
+  },
+  {
+   "label": "Materials with zero stock",
+   "value": "15 of 50",
+   "definition": "Closing qty <= 0 at the as-of date.",
+   "baseline": "50 demo materials",
+   "period": "As-of 2025-12-31",
+   "refreshed": "As-of 2025-12-31",
+   "source": "RAW FACT_INVENTORY_SNAPSHOT_PART_001..003 x DIM_MATERIAL",
+   "status": null,
+   "extra": null
+  }
+ ],
+ "charts": [
+  {
+   "id": "stockvalue",
+   "title": "Month-end stock value (INR), 50 demo materials",
+   "type": "line",
+   "labels": [
+    "2024-01-31",
+    "2024-02-29",
+    "2024-03-31",
+    "2024-04-30",
+    "2024-05-31",
+    "2024-06-30",
+    "2024-07-31",
+    "2024-08-31",
+    "2024-09-30",
+    "2024-10-31",
+    "2024-11-30",
+    "2024-12-31",
+    "2025-01-31",
+    "2025-02-28",
+    "2025-03-31",
+    "2025-04-30",
+    "2025-05-31",
+    "2025-06-30",
+    "2025-07-31",
+    "2025-08-31",
+    "2025-09-30",
+    "2025-10-31",
+    "2025-11-30",
+    "2025-12-31"
+   ],
+   "series": [
+    {
+     "name": "Stock value INR",
+     "data": [
+      55504896.41,
+      62715593.04,
+      65487581.1,
+      83330866.76,
+      83891284.7,
+      95858785.44,
+      100774260.1,
+      76797536.23,
+      82044894.41,
+      86443904.25,
+      89378969.32,
+      97151693.47,
+      50838571.29,
+      55760540.96,
+      64779649.89,
+      75859531.46,
+      70935153.72,
+      75678858.76,
+      76328818.7,
+      74422669.95,
+      79310814.9,
+      77161100.65,
+      72399778.8,
+      78735327.75
+     ]
+    }
+   ]
+  },
+  {
+   "id": "zerostock",
+   "title": "Materials with zero stock at month-end (of 50)",
+   "type": "bar",
+   "labels": [
+    "2024-01-31",
+    "2024-02-29",
+    "2024-03-31",
+    "2024-04-30",
+    "2024-05-31",
+    "2024-06-30",
+    "2024-07-31",
+    "2024-08-31",
+    "2024-09-30",
+    "2024-10-31",
+    "2024-11-30",
+    "2024-12-31",
+    "2025-01-31",
+    "2025-02-28",
+    "2025-03-31",
+    "2025-04-30",
+    "2025-05-31",
+    "2025-06-30",
+    "2025-07-31",
+    "2025-08-31",
+    "2025-09-30",
+    "2025-10-31",
+    "2025-11-30",
+    "2025-12-31"
+   ],
+   "series": [
+    {
+     "name": "Zero-stock materials",
+     "data": [
+      31,
+      28,
+      28,
+      23,
+      18,
+      11,
+      12,
+      17,
+      13,
+      12,
+      9,
+      8,
+      12,
+      12,
+      8,
+      12,
+      12,
+      10,
+      10,
+      12,
+      13,
+      12,
+      16,
+      15
+     ]
+    }
+   ]
+  }
+ ],
+ "tables": [
+  {
+   "title": "Month-end stock",
+   "columns": [
+    {
+     "key": "snapshot",
+     "label": "Snapshot"
+    },
+    {
+     "key": "materials",
+     "label": "Materials",
+     "fmt": "int"
+    },
+    {
+     "key": "qty",
+     "label": "Closing qty",
+     "fmt": "num0"
+    },
+    {
+     "key": "value",
+     "label": "Value INR",
+     "fmt": "inr"
+    },
+    {
+     "key": "zero_stock",
+     "label": "Zero stock",
+     "fmt": "int"
+    }
+   ],
+   "rows": [
+    {
+     "snapshot": "2024-01-31",
+     "materials": 50,
+     "qty": 32812.0,
+     "value": 55504896.41,
+     "zero_stock": 31
+    },
+    {
+     "snapshot": "2024-02-29",
+     "materials": 50,
+     "qty": 33615.0,
+     "value": 62715593.04,
+     "zero_stock": 28
+    },
+    {
+     "snapshot": "2024-03-31",
+     "materials": 50,
+     "qty": 34124.0,
+     "value": 65487581.1,
+     "zero_stock": 28
+    },
+    {
+     "snapshot": "2024-04-30",
+     "materials": 50,
+     "qty": 36895.0,
+     "value": 83330866.76,
+     "zero_stock": 23
+    },
+    {
+     "snapshot": "2024-05-31",
+     "materials": 50,
+     "qty": 37054.0,
+     "value": 83891284.7,
+     "zero_stock": 18
+    },
+    {
+     "snapshot": "2024-06-30",
+     "materials": 50,
+     "qty": 39023.0,
+     "value": 95858785.44,
+     "zero_stock": 11
+    },
+    {
+     "snapshot": "2024-07-31",
+     "materials": 50,
+     "qty": 39713.0,
+     "value": 100774260.1,
+     "zero_stock": 12
+    },
+    {
+     "snapshot": "2024-08-31",
+     "materials": 50,
+     "qty": 35970.0,
+     "value": 76797536.23,
+     "zero_stock": 17
+    },
+    {
+     "snapshot": "2024-09-30",
+     "materials": 50,
+     "qty": 36659.0,
+     "value": 82044894.41,
+     "zero_stock": 13
+    },
+    {
+     "snapshot": "2024-10-31",
+     "materials": 50,
+     "qty": 37274.0,
+     "value": 86443904.25,
+     "zero_stock": 12
+    },
+    {
+     "snapshot": "2024-11-30",
+     "materials": 50,
+     "qty": 37773.0,
+     "value": 89378969.32,
+     "zero_stock": 9
+    },
+    {
+     "snapshot": "2024-12-31",
+     "materials": 50,
+     "qty": 38950.0,
+     "value": 97151693.47,
+     "zero_stock": 8
+    },
+    {
+     "snapshot": "2025-01-31",
+     "materials": 50,
+     "qty": 23767.0,
+     "value": 50838571.29,
+     "zero_stock": 12
+    },
+    {
+     "snapshot": "2025-02-28",
+     "materials": 50,
+     "qty": 19159.0,
+     "value": 55760540.96,
+     "zero_stock": 12
+    },
+    {
+     "snapshot": "2025-03-31",
+     "materials": 50,
+     "qty": 14774.0,
+     "value": 64779649.89,
+     "zero_stock": 8
+    },
+    {
+     "snapshot": "2025-04-30",
+     "materials": 50,
+     "qty": 14653.0,
+     "value": 75859531.46,
+     "zero_stock": 12
+    },
+    {
+     "snapshot": "2025-05-31",
+     "materials": 50,
+     "qty": 13637.0,
+     "value": 70935153.72,
+     "zero_stock": 12
+    },
+    {
+     "snapshot": "2025-06-30",
+     "materials": 50,
+     "qty": 12040.0,
+     "value": 75678858.76,
+     "zero_stock": 10
+    },
+    {
+     "snapshot": "2025-07-31",
+     "materials": 50,
+     "qty": 12155.0,
+     "value": 76328818.7,
+     "zero_stock": 10
+    },
+    {
+     "snapshot": "2025-08-31",
+     "materials": 50,
+     "qty": 11695.0,
+     "value": 74422669.95,
+     "zero_stock": 12
+    },
+    {
+     "snapshot": "2025-09-30",
+     "materials": 50,
+     "qty": 12445.0,
+     "value": 79310814.9,
+     "zero_stock": 13
+    },
+    {
+     "snapshot": "2025-10-31",
+     "materials": 50,
+     "qty": 12302.0,
+     "value": 77161100.65,
+     "zero_stock": 12
+    },
+    {
+     "snapshot": "2025-11-30",
+     "materials": 50,
+     "qty": 11574.0,
+     "value": 72399778.8,
+     "zero_stock": 16
+    },
+    {
+     "snapshot": "2025-12-31",
+     "materials": 50,
+     "qty": 12407.0,
+     "value": 78735327.75,
+     "zero_stock": 15
+    }
+   ]
+  },
+  {
+   "title": "Movement class, RAW vs curated (equal)",
+   "columns": [
+    {
+     "key": "cls",
+     "label": "Class"
+    },
+    {
+     "key": "raw",
+     "label": "RAW count",
+     "fmt": "int"
+    },
+    {
+     "key": "curated",
+     "label": "Curated count",
+     "fmt": "int"
+    },
+    {
+     "key": "value",
+     "label": "RAW value INR",
+     "fmt": "inr"
+    }
+   ],
+   "rows": [
+    {
+     "cls": "ACTIVE",
+     "raw": 48,
+     "curated": 48,
+     "value": 74706519.34
+    },
+    {
+     "cls": "SLOW_MOVING",
+     "raw": 2,
+     "curated": 2,
+     "value": 4028808.41
+    }
+   ]
+  },
+  {
+   "title": "By criticality",
+   "columns": [
+    {
+     "key": "criticality",
+     "label": "Criticality"
+    },
+    {
+     "key": "materials",
+     "label": "Materials",
+     "fmt": "int"
+    },
+    {
+     "key": "zero_stock",
+     "label": "Zero stock",
+     "fmt": "int"
+    },
+    {
+     "key": "value",
+     "label": "Value INR",
+     "fmt": "inr"
+    }
+   ],
+   "rows": [
+    {
+     "criticality": "ESSENTIAL",
+     "materials": 8,
+     "zero_stock": 2,
+     "value": 11879203.86
+    },
+    {
+     "criticality": "DESIRABLE",
+     "materials": 23,
+     "zero_stock": 11,
+     "value": 17981862.18
+    },
+    {
+     "criticality": "VITAL",
+     "materials": 19,
+     "zero_stock": 2,
+     "value": 48874261.71
+    }
+   ]
+  }
+ ],
+ "notes": [
+  "Plant-wide RAW gross at 2025-12-31 for all 5,893 ZSPR/ZSPN lines is INR 1,079,888,374.64, equal to curated INVENTORY_KPI_MONTHLY. The 50 materials are INR 78,735,327.75 of it (7.29%).",
+  "The curated gross series is plant-wide, so its movement is not comparable with the 50-material series above.",
+  "Slow-moving, non-moving and obsolete windows are not recorded in the data tables read; classes are quoted as the source labels them."
+ ]
+}

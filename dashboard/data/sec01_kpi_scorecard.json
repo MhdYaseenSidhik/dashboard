@@ -1,0 +1,169 @@
+{
+ "id": "sec01_kpi_scorecard",
+ "nav": "KPI scorecard",
+ "title": "KPI scorecard",
+ "intro": "All 13 KPIs against their targets: 0 met, 7 not met, 6 not computable on demo scope. A KPI is only called met with its drill-down; none qualifies today.",
+ "tiles": [],
+ "charts": [],
+ "tables": [
+  {
+   "title": "13 KPIs",
+   "columns": [
+    {
+     "key": "kpi",
+     "label": "#",
+     "fmt": "int"
+    },
+    {
+     "key": "name",
+     "label": "KPI"
+    },
+    {
+     "key": "display",
+     "label": "Value"
+    },
+    {
+     "key": "target",
+     "label": "Target"
+    },
+    {
+     "key": "period",
+     "label": "Period"
+    },
+    {
+     "key": "status",
+     "label": "Status",
+     "fmt": "status"
+    },
+    {
+     "key": "drill",
+     "label": "Drill-down",
+     "fmt": "link"
+    }
+   ],
+   "rows": [
+    {
+     "kpi": 1,
+     "name": "Gross inventory reduction",
+     "display": "-54.87% (stock is 54.87% above baseline)",
+     "target": ">= 10% (quarterly / yearly), against the lowest month-end of the past FY",
+     "period": "FY2025-26 to date (Apr to Dec 2025), as-of 2025-12-31",
+     "status": "not_met",
+     "drill": "sec03_inventory_health"
+    },
+    {
+     "kpi": 2,
+     "name": "NM inventory reduction (NMI)",
+     "display": "Not computable on demo scope",
+     "target": ">= 10% monthly",
+     "period": "Dec 2025 against Nov 2025",
+     "status": "not_computable",
+     "drill": "sec05_nm_sm_prediction"
+    },
+    {
+     "kpi": 3,
+     "name": "SM inventory reduction (SMI)",
+     "display": "Not computable on demo scope",
+     "target": ">= 20% monthly",
+     "period": "Dec 2025 against Nov 2025",
+     "status": "not_computable",
+     "drill": "sec05_nm_sm_prediction"
+    },
+    {
+     "kpi": 4,
+     "name": "Obsolete conversion",
+     "display": "Not computable on demo scope",
+     "target": ">= 5% yearly",
+     "period": "Dec 2025 against Dec 2024",
+     "status": "not_computable",
+     "drill": "sec05_nm_sm_prediction"
+    },
+    {
+     "kpi": 5,
+     "name": "Demand quantity prediction",
+     "display": "16.26% accuracy; forward forecast for 45 of 50 series (90.0%)",
+     "target": "100% (every material forecast, and accurate)",
+     "period": "Holdout Jul to Dec 2025 (6 months, never seen by the model); forward Jan to Jun 2026",
+     "status": "not_met",
+     "drill": "sec02_demand_forecast"
+    },
+    {
+     "kpi": 6,
+     "name": "Inventory forecast accuracy",
+     "display": "16.26% (6 months); 14.57% (last 3 months)",
+     "target": "> 90%",
+     "period": "Holdout Jul to Dec 2025 (6 months); last 3 months Oct to Dec 2025 shown for comparison",
+     "status": "not_met",
+     "drill": "sec02_demand_forecast"
+    },
+    {
+     "kpi": 7,
+     "name": "Potential NM/SM prediction",
+     "display": "Not computable on demo scope",
+     "target": "100% (F1 on NM/SM classification)",
+     "period": "Not applicable: no held-out run",
+     "status": "not_computable",
+     "drill": "sec05_nm_sm_prediction"
+    },
+    {
+     "kpi": 8,
+     "name": "Critical spares availability",
+     "display": "89.47% (17 of 19 VITAL materials with stock)",
+     "target": "> 95%",
+     "period": "As-of 2025-12-31",
+     "status": "not_met",
+     "drill": "sec04_over_understock"
+    },
+    {
+     "kpi": 9,
+     "name": "Real-time MRP/ROP adjustment",
+     "display": "90.0% recalculated (45 of 50); 42 of 45 differ from master by more than 20%",
+     "target": "100%",
+     "period": "As-of 2025-12-31 (batch run)",
+     "status": "not_met",
+     "drill": "sec08_mrp_rop"
+    },
+    {
+     "kpi": 10,
+     "name": "Duplicate SKU identification",
+     "display": "4 duplicate groups touching 4 of the 50 materials (candidates, not scored)",
+     "target": "100%",
+     "period": "As-of 2025-12-31",
+     "status": "not_computable",
+     "drill": "sec09_duplicate_skus"
+    },
+    {
+     "kpi": 11,
+     "name": "PR date suggestion",
+     "display": "90.0% assessed (45 of 50); 37 lines due, 29 raise now",
+     "target": "100%",
+     "period": "Next 90 days from 2025-12-31 (to 2026-03-31)",
+     "status": "not_met",
+     "drill": "sec07_pr_recommendations"
+    },
+    {
+     "kpi": 12,
+     "name": "PR count reduction",
+     "display": "8.43% reduction (261 to 239 lines); calendar 2025 against 2024: 11.56% reduction (372 to 329)",
+     "target": "10% year on year",
+     "period": "FY2025-26 to date (Apr to Dec 2025) against Apr to Dec 2024",
+     "status": "not_met",
+     "drill": "sec07_pr_recommendations"
+    },
+    {
+     "kpi": 13,
+     "name": "NOM reduction",
+     "display": "Not computable on demo scope",
+     "target": "1 to 7 days",
+     "period": "Not applicable",
+     "status": "not_computable",
+     "drill": "sec08_mrp_rop"
+    }
+   ]
+  }
+ ],
+ "notes": [
+  "Each row links to the page holding its drill-down to material code.",
+  "Counts: met 0, not met 7, not computable 6."
+ ]
+}

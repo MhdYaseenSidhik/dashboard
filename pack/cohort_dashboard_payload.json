@@ -1,0 +1,413 @@
+{
+ "title": "Demo scope: PART_001, plant HZL_DEMO_05, top 50 materials.",
+ "metrics": [
+  {
+   "label": "KPI 1 Gross inventory reduction",
+   "value": "-54.87% (stock is 54.87% above baseline)",
+   "target": ">= 10% (quarterly / yearly), against the lowest month-end of the past FY",
+   "unit": "Not met",
+   "good": "up"
+  },
+  {
+   "label": "KPI 2 NM inventory reduction (NMI)",
+   "value": "Not computable on demo scope",
+   "target": ">= 10% monthly",
+   "unit": "Not computable on demo scope",
+   "good": "up"
+  },
+  {
+   "label": "KPI 3 SM inventory reduction (SMI)",
+   "value": "Not computable on demo scope",
+   "target": ">= 20% monthly",
+   "unit": "Not computable on demo scope",
+   "good": "up"
+  },
+  {
+   "label": "KPI 4 Obsolete conversion",
+   "value": "Not computable on demo scope",
+   "target": ">= 5% yearly",
+   "unit": "Not computable on demo scope",
+   "good": "up"
+  },
+  {
+   "label": "KPI 5 Demand quantity prediction",
+   "value": "16.26% accuracy; forward forecast for 45 of 50 series (90.0%)",
+   "target": "100% (every material forecast, and accurate)",
+   "unit": "Not met",
+   "good": "up"
+  },
+  {
+   "label": "KPI 6 Inventory forecast accuracy",
+   "value": "16.26% (6 months); 14.57% (last 3 months)",
+   "target": "> 90%",
+   "unit": "Not met",
+   "good": "up"
+  },
+  {
+   "label": "KPI 7 Potential NM/SM prediction",
+   "value": "Not computable on demo scope",
+   "target": "100% (F1 on NM/SM classification)",
+   "unit": "Not computable on demo scope",
+   "good": "up"
+  },
+  {
+   "label": "KPI 8 Critical spares availability",
+   "value": "89.47% (17 of 19 VITAL materials with stock)",
+   "target": "> 95%",
+   "unit": "Not met",
+   "good": "up"
+  },
+  {
+   "label": "KPI 9 Real-time MRP/ROP adjustment",
+   "value": "90.0% recalculated (45 of 50); 42 of 45 differ from master by more than 20%",
+   "target": "100%",
+   "unit": "Not met",
+   "good": "up"
+  },
+  {
+   "label": "KPI 10 Duplicate SKU identification",
+   "value": "4 duplicate groups touching 4 of the 50 materials (candidates, not scored)",
+   "target": "100%",
+   "unit": "Not computable on demo scope",
+   "good": "up"
+  },
+  {
+   "label": "KPI 11 PR date suggestion",
+   "value": "90.0% assessed (45 of 50); 37 lines due, 29 raise now",
+   "target": "100%",
+   "unit": "Not met",
+   "good": "up"
+  },
+  {
+   "label": "KPI 12 PR count reduction",
+   "value": "8.43% reduction (261 to 239 lines); calendar 2025 against 2024: 11.56% reduction (372 to 329)",
+   "target": "10% year on year",
+   "unit": "Not met",
+   "good": "up"
+  },
+  {
+   "label": "KPI 13 NOM reduction",
+   "value": "Not computable on demo scope",
+   "target": "1 to 7 days",
+   "unit": "Not computable on demo scope",
+   "good": "up"
+  }
+ ],
+ "charts": [
+  {
+   "title": "Demand history, 45 series with a forward forecast (net issues)",
+   "type": "line",
+   "labels": [
+    "2024-01",
+    "2024-02",
+    "2024-03",
+    "2024-04",
+    "2024-05",
+    "2024-06",
+    "2024-07",
+    "2024-08",
+    "2024-09",
+    "2024-10",
+    "2024-11",
+    "2024-12",
+    "2025-01",
+    "2025-02",
+    "2025-03",
+    "2025-04",
+    "2025-05",
+    "2025-06",
+    "2025-07",
+    "2025-08",
+    "2025-09",
+    "2025-10",
+    "2025-11",
+    "2025-12"
+   ],
+   "series": [
+    {
+     "name": "History",
+     "data": [
+      7219.0,
+      6603.0,
+      3089.0,
+      5557.0,
+      3390.0,
+      2868.0,
+      3135.0,
+      6660.0,
+      2963.0,
+      4864.0,
+      3545.0,
+      4118.0,
+      17103.0,
+      8352.0,
+      9090.0,
+      5478.0,
+      4647.0,
+      6393.0,
+      10603.0,
+      4929.0,
+      12983.0,
+      10217.0,
+      9558.0,
+      12569.0
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Holdout Jul-Dec 2025, actual vs engine prediction (45 series)",
+   "type": "line",
+   "labels": [
+    "2025-07",
+    "2025-08",
+    "2025-09",
+    "2025-10",
+    "2025-11",
+    "2025-12"
+   ],
+   "series": [
+    {
+     "name": "Holdout actual",
+     "data": [
+      10603.0,
+      4929.0,
+      12983.0,
+      10217.0,
+      9558.0,
+      12569.0
+     ]
+    },
+    {
+     "name": "Holdout predicted",
+     "data": [
+      4972.9,
+      4956.8,
+      5034.1,
+      5650.8,
+      5144.9,
+      5122.6
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Forward Jan-Jun 2026, engine monthly means (45 series)",
+   "type": "bar",
+   "labels": [
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06"
+   ],
+   "series": [
+    {
+     "name": "Forward",
+     "data": [
+      8395.4,
+      8465.2,
+      8488.8,
+      9248.1,
+      8226.5,
+      8156.7
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Month-end stock value (INR), 50 demo materials",
+   "type": "line",
+   "labels": [
+    "2024-01-31",
+    "2024-02-29",
+    "2024-03-31",
+    "2024-04-30",
+    "2024-05-31",
+    "2024-06-30",
+    "2024-07-31",
+    "2024-08-31",
+    "2024-09-30",
+    "2024-10-31",
+    "2024-11-30",
+    "2024-12-31",
+    "2025-01-31",
+    "2025-02-28",
+    "2025-03-31",
+    "2025-04-30",
+    "2025-05-31",
+    "2025-06-30",
+    "2025-07-31",
+    "2025-08-31",
+    "2025-09-30",
+    "2025-10-31",
+    "2025-11-30",
+    "2025-12-31"
+   ],
+   "series": [
+    {
+     "name": "Stock value INR",
+     "data": [
+      55504896.41,
+      62715593.04,
+      65487581.1,
+      83330866.76,
+      83891284.7,
+      95858785.44,
+      100774260.1,
+      76797536.23,
+      82044894.41,
+      86443904.25,
+      89378969.32,
+      97151693.47,
+      50838571.29,
+      55760540.96,
+      64779649.89,
+      75859531.46,
+      70935153.72,
+      75678858.76,
+      76328818.7,
+      74422669.95,
+      79310814.9,
+      77161100.65,
+      72399778.8,
+      78735327.75
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Plan vs actual PO value by month (INR), plant HZL_DEMO_05, ZSPR/ZSPN",
+   "type": "bar",
+   "labels": [
+    "2024-01",
+    "2024-02",
+    "2024-03",
+    "2024-04",
+    "2024-05",
+    "2024-06",
+    "2024-07",
+    "2024-08",
+    "2024-09",
+    "2024-10",
+    "2024-11",
+    "2024-12",
+    "2025-01",
+    "2025-02",
+    "2025-03",
+    "2025-04",
+    "2025-05",
+    "2025-06",
+    "2025-07",
+    "2025-08",
+    "2025-09",
+    "2025-10",
+    "2025-11",
+    "2025-12"
+   ],
+   "series": [
+    {
+     "name": "Plan",
+     "data": [
+      76175468.13,
+      145537850.63,
+      198180293.94,
+      102643321.71,
+      113760940.11,
+      118749392.84,
+      123459930.28,
+      317661688.91,
+      189314987.69,
+      182766669.6,
+      164630967.38,
+      159647935.54,
+      110864874.07,
+      191998501.15,
+      259622174.16,
+      164207036.24,
+      188366799.47,
+      170164266.79,
+      176264324.08,
+      255435060.39,
+      286017198.63,
+      212633052.94,
+      228405213.95,
+      181558280.02
+     ]
+    },
+    {
+     "name": "Actual PO",
+     "data": [
+      88691899.25,
+      153598800.9,
+      207697739.29,
+      131365628.97,
+      150693439.56,
+      136131413.42,
+      141011459.24,
+      204348048.28,
+      228813758.9,
+      170106442.33,
+      182724171.16,
+      145246623.99,
+      157089988.4,
+      214836640.44,
+      253037125.51,
+      152426508.6,
+      171205165.25,
+      155176333.74,
+      192236755.8,
+      231643432.79,
+      241980327.74,
+      208403561.87,
+      178897409.49,
+      181521881.54
+     ]
+    }
+   ]
+  }
+ ],
+ "insights": [
+  {
+   "title": "No KPI is met",
+   "severity": "critical",
+   "detail": "0 met, 7 not met, 6 not computable on demo scope."
+  },
+  {
+   "title": "Engine warning (verbatim)",
+   "severity": "warn",
+   "detail": "Holdout diagnostics unavailable: ValueError: 0'th time-series in data must be a dict, got<class 'numpy.ndarray'>"
+  },
+  {
+   "title": "KPI 2 not computable on demo scope",
+   "severity": "info",
+   "detail": "RAW MATERIAL_PLANT_CLASSIFICATION holds one as-of date (2025-12-31) and the 50 demo materials have 0 NON_MOVING. No prior month to compare, and the non-moving window is not recorded in the data."
+  },
+  {
+   "title": "KPI 3 not computable on demo scope",
+   "severity": "info",
+   "detail": "RAW has one classification date, so no month-on-month series. The 50 demo materials hold 2 SLOW_MOVING lines worth INR 4,028,808.41 at 2025-12-31; the slow-moving window is not recorded in the data."
+  },
+  {
+   "title": "KPI 4 not computable on demo scope",
+   "severity": "info",
+   "detail": "The 50 demo materials have 0 OBSOLETE lines at 2025-12-31 and RAW has no earlier classification. Conversion events are not in the demo tables."
+  },
+  {
+   "title": "KPI 7 not computable on demo scope",
+   "severity": "info",
+   "detail": "No NM/SM classifier was run on ContextFlow. The only NM/SM data are current labels, with no forward class to score. F1 is not estimated."
+  },
+  {
+   "title": "KPI 10 not computable on demo scope",
+   "severity": "info",
+   "detail": "The 100% target needs a labelled ground truth, which the demo does not have. Candidates found by exact description only; near-duplicates are not searched."
+  },
+  {
+   "title": "KPI 13 not computable on demo scope",
+   "severity": "info",
+   "detail": "No column, definition or event dates for NOM exist in the tables read. Median PR-to-PO of 24 days is shown for context on the MRP page, and is not NOM."
+  }
+ ]
+}

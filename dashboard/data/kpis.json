@@ -1,0 +1,216 @@
+[
+ {
+  "kpi": 1,
+  "name": "Gross inventory reduction",
+  "target": ">= 10% (quarterly / yearly), against the lowest month-end of the past FY",
+  "period": "FY2025-26 to date (Apr to Dec 2025), as-of 2025-12-31",
+  "baseline": "Lowest month-end of FY2024-25: INR 50,838,571.29 on 2025-01-31 (50 demo materials)",
+  "definition": "(baseline - closing value) / baseline. Closing value = RAW FACT_INVENTORY_SNAPSHOT CLOSING_QTY x DIM_MATERIAL UNIT_COST_INR, plant HZL_DEMO_05, the 50 demo materials.",
+  "value": -54.87,
+  "display": "-54.87% (stock is 54.87% above baseline)",
+  "status": "not_met",
+  "detail": "Closing INR 78,735,327.75 against baseline INR 50,838,571.29. Not a reduction. Any fall seen elsewhere is not claimed for this system.",
+  "drill": "sec03_inventory_health",
+  "curated": {
+   "label": "Curated plant-wide (INVENTORY_KPI_MONTHLY), different scope",
+   "value": 6.44,
+   "display": "6.44% reduction; baseline INR 1,154,272,460.99 on 2025-02, closing INR 1,079,888,374.64"
+  }
+ },
+ {
+  "kpi": 2,
+  "name": "NM inventory reduction (NMI)",
+  "target": ">= 10% monthly",
+  "period": "Dec 2025 against Nov 2025",
+  "baseline": "Prior month non-moving value",
+  "definition": "Month-on-month fall in value of material classed NON_MOVING.",
+  "value": null,
+  "display": "Not computable on demo scope",
+  "status": "not_computable",
+  "detail": "RAW MATERIAL_PLANT_CLASSIFICATION holds one as-of date (2025-12-31) and the 50 demo materials have 0 NON_MOVING. No prior month to compare, and the non-moving window is not recorded in the data.",
+  "drill": "sec05_nm_sm_prediction",
+  "curated": {
+   "label": "Curated plant-wide NON_MOVING_VALUE_INR, not reconciled to RAW",
+   "value": 12.4,
+   "display": "12.4% lower (INR 51,151,671.21 to INR 44,806,736.02). Simulated baseline; not attributed to this system."
+  }
+ },
+ {
+  "kpi": 3,
+  "name": "SM inventory reduction (SMI)",
+  "target": ">= 20% monthly",
+  "period": "Dec 2025 against Nov 2025",
+  "baseline": "Prior month slow-moving value",
+  "definition": "Month-on-month fall in value of material classed SLOW_MOVING.",
+  "value": null,
+  "display": "Not computable on demo scope",
+  "status": "not_computable",
+  "detail": "RAW has one classification date, so no month-on-month series. The 50 demo materials hold 2 SLOW_MOVING lines worth INR 4,028,808.41 at 2025-12-31; the slow-moving window is not recorded in the data.",
+  "drill": "sec05_nm_sm_prediction",
+  "curated": {
+   "label": "Curated plant-wide SLOW_MOVING_VALUE_INR, not reconciled to RAW",
+   "value": -287.12,
+   "display": "287.12% higher (INR 80,567,056.39 to INR 311,893,432.89). Simulated baseline."
+  }
+ },
+ {
+  "kpi": 4,
+  "name": "Obsolete conversion",
+  "target": ">= 5% yearly",
+  "period": "Dec 2025 against Dec 2024",
+  "baseline": "Obsolete value at 2024-12-31",
+  "definition": "Year-on-year fall in OBSOLETE value through conversion or disposal.",
+  "value": null,
+  "display": "Not computable on demo scope",
+  "status": "not_computable",
+  "detail": "The 50 demo materials have 0 OBSOLETE lines at 2025-12-31 and RAW has no earlier classification. Conversion events are not in the demo tables.",
+  "drill": "sec05_nm_sm_prediction",
+  "curated": {
+   "label": "Curated plant-wide OBSOLETE_VALUE_INR, not reconciled to RAW",
+   "value": 89.23,
+   "display": "INR 570,769,290.12 to INR 61,453,759.22. Simulated baseline; whether it came from conversion or a customer-side initiative is unknown, so none of it is claimed."
+  }
+ },
+ {
+  "kpi": 5,
+  "name": "Demand quantity prediction",
+  "target": "100% (every material forecast, and accurate)",
+  "period": "Holdout Jul to Dec 2025 (6 months, never seen by the model); forward Jan to Jun 2026",
+  "baseline": "Holdout actuals, 50 series x 6 months = 300 rows",
+  "definition": "Demand accuracy = 1 - WAPE on held-out months, WAPE = sum |actual - predicted| / sum actual. Coverage = series with a forward forecast / series in scope.",
+  "value": 0.1626,
+  "display": "16.26% accuracy; forward forecast for 45 of 50 series (90.0%)",
+  "status": "not_met",
+  "detail": "WAPE 0.8374. Five series have no forward forecast: HZL1005107, HZL1005876, HZL1005880, HZL1005932, HZL1005933. ContextFlow predict-batch output was truncated for them (issue #21); nothing was forecast by hand.",
+  "drill": "sec02_demand_forecast",
+  "curated": null
+ },
+ {
+  "kpi": 6,
+  "name": "Inventory forecast accuracy",
+  "target": "> 90%",
+  "period": "Holdout Jul to Dec 2025 (6 months); last 3 months Oct to Dec 2025 shown for comparison",
+  "baseline": "Holdout actuals, 300 rows, 50 series",
+  "definition": "1 - WAPE on the same held-out months. ContextFlow was asked for demand only; no separate inventory-level forecast was run.",
+  "value": 0.1626,
+  "display": "16.26% (6 months); 14.57% (last 3 months)",
+  "status": "not_met",
+  "detail": "WAPE 0.8374 (6 months), 0.8543 (3 months). 87.67% of actuals fell inside the engine interval. Engine warning quoted on the forecast page.",
+  "drill": "sec02_demand_forecast",
+  "curated": null
+ },
+ {
+  "kpi": 7,
+  "name": "Potential NM/SM prediction",
+  "target": "100% (F1 on NM/SM classification)",
+  "period": "Not applicable: no held-out run",
+  "baseline": "None",
+  "definition": "F1 of predicted NM/SM against the actual class on held-out periods.",
+  "value": null,
+  "display": "Not computable on demo scope",
+  "status": "not_computable",
+  "detail": "No NM/SM classifier was run on ContextFlow. The only NM/SM data are current labels, with no forward class to score. F1 is not estimated.",
+  "drill": "sec05_nm_sm_prediction",
+  "curated": null
+ },
+ {
+  "kpi": 8,
+  "name": "Critical spares availability",
+  "target": "> 95%",
+  "period": "As-of 2025-12-31",
+  "baseline": "19 VITAL materials among the 50",
+  "definition": "VITAL materials with closing stock > 0 / VITAL materials, plant HZL_DEMO_05, 50 demo materials.",
+  "value": 89.47,
+  "display": "89.47% (17 of 19 VITAL materials with stock)",
+  "status": "not_met",
+  "detail": "Two VITAL materials have zero stock: HZL1004843 and HZL1004853. Both are on the PR page marked raise now.",
+  "drill": "sec04_over_understock",
+  "curated": {
+   "label": "Curated plant-wide CRITICAL_SPARE_AVAILABILITY_PCT",
+   "value": 87.9121,
+   "display": "87.9121% (different scope and definition, simulated baseline)"
+  }
+ },
+ {
+  "kpi": 9,
+  "name": "Real-time MRP/ROP adjustment",
+  "target": "100%",
+  "period": "As-of 2025-12-31 (batch run)",
+  "baseline": "DIM_MATERIAL.REORDER_POINT_QTY",
+  "definition": "Materials with a recalculated ROP / materials in scope. Real time means a live feed; this build is a batch.",
+  "value": 90.0,
+  "display": "90.0% recalculated (45 of 50); 42 of 45 differ from master by more than 20%",
+  "status": "not_met",
+  "detail": "Five series have no forward forecast, so no ROP. The real-time claim is not demonstrated: there is no live feed in the demo. MRP type (VB/PD) is not computable on demo scope: no such column in RAW.",
+  "drill": "sec08_mrp_rop",
+  "curated": null
+ },
+ {
+  "kpi": 10,
+  "name": "Duplicate SKU identification",
+  "target": "100%",
+  "period": "As-of 2025-12-31",
+  "baseline": "Exact-description match across all ZSPR/ZSPN",
+  "definition": "Duplicate = two or more ZSPR/ZSPN materials with an identical description. Recall against a labelled list cannot be computed: none exists.",
+  "value": null,
+  "display": "4 duplicate groups touching 4 of the 50 materials (candidates, not scored)",
+  "status": "not_computable",
+  "detail": "The 100% target needs a labelled ground truth, which the demo does not have. Candidates found by exact description only; near-duplicates are not searched.",
+  "drill": "sec09_duplicate_skus",
+  "curated": {
+   "label": "Curated DUPLICATE_SKU_OPPORTUNITY_INR, plant-wide, MODELED_OPPORTUNITY",
+   "value": 4526574.64,
+   "display": "INR 4,526,574.64 modelled, not reconciled"
+  }
+ },
+ {
+  "kpi": 11,
+  "name": "PR date suggestion",
+  "target": "100%",
+  "period": "Next 90 days from 2025-12-31 (to 2026-03-31)",
+  "baseline": "Position <= calculated ROP",
+  "definition": "Materials with a suggested PR date / materials in scope, where a date is the day the projected position reaches calculated ROP.",
+  "value": 90.0,
+  "display": "90.0% assessed (45 of 50); 37 lines due, 29 raise now",
+  "status": "not_met",
+  "detail": "Five materials cannot be assessed (no forward forecast). 37 lines, INR 106,631,499.92, have a suggested date within 90 days.",
+  "drill": "sec07_pr_recommendations",
+  "curated": {
+   "label": "Curated REORDER_RECOMMENDATION",
+   "value": 18,
+   "display": "18 lines against 37 derived here: diverges, both shown"
+  }
+ },
+ {
+  "kpi": 12,
+  "name": "PR count reduction",
+  "target": "10% year on year",
+  "period": "FY2025-26 to date (Apr to Dec 2025) against Apr to Dec 2024",
+  "baseline": "261 PR lines, Apr to Dec 2024",
+  "definition": "Fall in non-cancelled PR lines for the 50 demo materials, same months in consecutive FYs. Observed, not a result of this system: it is not live.",
+  "value": 8.43,
+  "display": "8.43% reduction (261 to 239 lines); calendar 2025 against 2024: 11.56% reduction (372 to 329)",
+  "status": "not_met",
+  "detail": "Below the 10% target on the FY basis (8.43%). The calendar-year cut (11.56%) is above 10% but covers a different window; the FY basis is the one the brief defines, and neither is attributed to this system.",
+  "drill": "sec07_pr_recommendations",
+  "curated": {
+   "label": "Curated PR_COUNT, plant-wide, calendar year",
+   "value": null,
+   "display": "12,547 (2024) to 16,293 (2025), a rise; a different scope that counts all plant materials"
+  }
+ },
+ {
+  "kpi": 13,
+  "name": "NOM reduction",
+  "target": "1 to 7 days",
+  "period": "Not applicable",
+  "baseline": "None",
+  "definition": "Not defined in the data dictionary or any demo table.",
+  "value": null,
+  "display": "Not computable on demo scope",
+  "status": "not_computable",
+  "detail": "No column, definition or event dates for NOM exist in the tables read. Median PR-to-PO of 24 days is shown for context on the MRP page, and is not NOM.",
+  "drill": "sec08_mrp_rop",
+  "curated": null
+ }
+]

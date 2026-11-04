@@ -1,0 +1,247 @@
+{
+ "id": "sec05_nm_sm_prediction",
+ "nav": "NM / SM prediction",
+ "title": "NM / SM prediction",
+ "intro": "What is non-moving or slow-moving today in the 50, and why a forward NM/SM prediction cannot be scored on this scope.",
+ "tiles": [
+  {
+   "label": "Current SM materials",
+   "value": "2 of 50",
+   "definition": "MOVEMENT_CLASS = SLOW_MOVING in RAW MATERIAL_PLANT_CLASSIFICATION; window is the source table's own.",
+   "baseline": "Curated matches (2)",
+   "period": "As-of 2025-12-31",
+   "refreshed": "As-of 2025-12-31",
+   "source": "RAW vs curated",
+   "status": null,
+   "extra": null
+  },
+  {
+   "label": "Current NM materials",
+   "value": "0 of 50",
+   "definition": "MOVEMENT_CLASS = NON_MOVING.",
+   "baseline": "Curated matches (0)",
+   "period": "As-of 2025-12-31",
+   "refreshed": "As-of 2025-12-31",
+   "source": "RAW vs curated",
+   "status": null,
+   "extra": null
+  },
+  {
+   "label": "Potential NM/SM prediction (KPI 7)",
+   "value": "Not computable on demo scope",
+   "definition": "F1 of predicted against actual NM/SM on held-out periods.",
+   "baseline": "None",
+   "period": "n/a",
+   "refreshed": "As-of 2025-12-31",
+   "source": "None: no classifier was run on ContextFlow",
+   "status": "not_computable",
+   "extra": null
+  }
+ ],
+ "charts": [],
+ "tables": [
+  {
+   "title": "Movement class, RAW vs curated",
+   "columns": [
+    {
+     "key": "cls",
+     "label": "Class"
+    },
+    {
+     "key": "raw",
+     "label": "RAW",
+     "fmt": "int"
+    },
+    {
+     "key": "cur",
+     "label": "Curated",
+     "fmt": "int"
+    }
+   ],
+   "rows": [
+    {
+     "cls": "ACTIVE",
+     "raw": 48,
+     "cur": 48
+    },
+    {
+     "cls": "SLOW_MOVING (SM)",
+     "raw": 2,
+     "cur": 2
+    },
+    {
+     "cls": "NON_MOVING (NM)",
+     "raw": 0,
+     "cur": 0
+    },
+    {
+     "cls": "OBSOLETE",
+     "raw": 0,
+     "cur": 0
+    }
+   ]
+  },
+  {
+   "title": "Current slow-moving materials",
+   "columns": [
+    {
+     "key": "material",
+     "label": "Material"
+    },
+    {
+     "key": "criticality",
+     "label": "Criticality"
+    },
+    {
+     "key": "shutdown_flag",
+     "label": "Shutdown"
+    },
+    {
+     "key": "closing_qty",
+     "label": "Closing",
+     "fmt": "num0"
+    },
+    {
+     "key": "stock_value_inr",
+     "label": "Value INR",
+     "fmt": "inr"
+    },
+    {
+     "key": "hist_12m_net_issues",
+     "label": "Net issues 12m",
+     "fmt": "num0"
+    },
+    {
+     "key": "raw_class",
+     "label": "RAW class"
+    },
+    {
+     "key": "cur_class",
+     "label": "Curated class"
+    }
+   ],
+   "rows": [
+    {
+     "material": "HZL1003336",
+     "type": "ZSPN",
+     "group": "MECHANICAL",
+     "criticality": "ESSENTIAL",
+     "unit_cost": 5171.98,
+     "shutdown_flag": "Y",
+     "moq": 20.0,
+     "mult": 5.0,
+     "closing_qty": 180.0,
+     "blocked_qty": 0.0,
+     "on_order_qty": 0.0,
+     "open_pr_qty": 0.0,
+     "stock_value_inr": 930956.4,
+     "hist_12m_net_issues": 21.0,
+     "hist_24m_net_issues": 1050.0,
+     "planned_lt_days": 32.0,
+     "actual_lt_days": 45.0,
+     "lead_time_days": 69.0,
+     "master_ss": 259.795,
+     "master_rop": 365.196,
+     "master_max": 464.01,
+     "cur_rop": 179.459,
+     "cur_max": 225.253,
+     "cur_status": "SLOW_MOVING",
+     "raw_class": "SLOW_MOVING",
+     "cur_class": "SLOW_MOVING",
+     "forecast_6m": 0.0,
+     "forecast_engine_raw": [
+      -1.894,
+      -5.106,
+      -5.519,
+      -3.495,
+      -15.395,
+      -18.892
+     ],
+     "negative_engine_means": 6,
+     "lt_demand": 0.0,
+     "calc_ss": 165.479,
+     "calc_rop": 165.479,
+     "calc_max": 165.479,
+     "monthly_std_raw": 66.335,
+     "position": 180.0,
+     "excess_threshold": 165.479,
+     "excess_qty": 14.521,
+     "excess_value_inr": 75102.32,
+     "understock": false,
+     "under_qty": 0.0,
+     "rop_dev_pct": -54.7,
+     "rop_flag": true,
+     "days_to_rop": null,
+     "due_90d": false,
+     "no_demand_stock": false
+    },
+    {
+     "material": "HZL1004812",
+     "type": "ZSPR",
+     "group": "BEARING_COMPONENTS",
+     "criticality": "VITAL",
+     "unit_cost": 7611.43,
+     "shutdown_flag": "Y",
+     "moq": 25.0,
+     "mult": 1.0,
+     "closing_qty": 407.0,
+     "blocked_qty": 0.0,
+     "on_order_qty": 0.0,
+     "open_pr_qty": 0.0,
+     "stock_value_inr": 3097852.01,
+     "hist_12m_net_issues": 415.0,
+     "hist_24m_net_issues": 1077.0,
+     "planned_lt_days": 57.0,
+     "actual_lt_days": 29.428571,
+     "lead_time_days": 81.0,
+     "master_ss": 528.027,
+     "master_rop": 756.287,
+     "master_max": 876.424,
+     "cur_rop": 380.351,
+     "cur_max": 433.836,
+     "cur_status": "SLOW_MOVING",
+     "raw_class": "SLOW_MOVING",
+     "cur_class": "SLOW_MOVING",
+     "forecast_6m": 197.292,
+     "forecast_engine_raw": [
+      31.981,
+      31.889,
+      34.509,
+      39.49,
+      29.994,
+      29.429
+     ],
+     "negative_engine_means": 0,
+     "lt_demand": 88.36,
+     "calc_ss": 225.333,
+     "calc_rop": 313.693,
+     "calc_max": 412.072,
+     "monthly_std_raw": 66.774,
+     "position": 407.0,
+     "excess_threshold": 412.072,
+     "excess_qty": 0.0,
+     "excess_value_inr": 0.0,
+     "understock": false,
+     "under_qty": 0.0,
+     "rop_dev_pct": -58.5,
+     "rop_flag": true,
+     "days_to_rop": 86,
+     "due_90d": true,
+     "raise_date": "2026-03-27",
+     "raise_now": false,
+     "order_qty_raw": 98.998,
+     "order_qty": 99.0,
+     "order_value_inr": 753531.57,
+     "high_priority": false,
+     "hold_cost_year_inr": 60282.53,
+     "no_demand_stock": false
+    }
+   ]
+  }
+ ],
+ "notes": [
+  "Potential NM/SM prediction is not computable on demo scope: ContextFlow was run for demand only, and RAW holds a single classification date, so there is no earlier class to train on and no later class to score against.",
+  "No F1 is stated and none is estimated. The two SM lines are today's labels, not predictions.",
+  "Curated INVENTORY_CLASSIFICATION agrees with RAW on every class count for these 50."
+ ]
+}

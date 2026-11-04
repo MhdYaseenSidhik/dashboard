@@ -1,0 +1,4 @@
+{
+  "what": "queries/raw_verification_top50.sql executed live against SAP HANA VEDANTA_POC via hana_query (SELECT only), 2026-11-04",
+  "result": {"N_TOP50_MATERIALS": 50, "SUM_NET_QTY": "171630.000", "NONZERO_ROWS": 1046}
+}
